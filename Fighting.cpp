@@ -14,13 +14,13 @@ int main()
         sqlite::sqlite db( sqliteFile );
         
         string test;
-        cout << "Enter a name of enemy, who will fight vs Steve: ";      // Enter the name of enemie, who will fight Steve
+        cout << "Enter a name of enemy, who will fight vs Steve: ";      // Enter the name of enemie, who will fight against Steve!
         cin >> test;
         
         
         auto cur = db.get_statement();
             
-        cur->set_sql("SELECT * FROM Enemies WHERE EnemyName = ?;");      // Takes the information from the table into program
+        cur->set_sql("SELECT * FROM Enemies WHERE EnemyName = ?;");      // Takes the information from the database table into the program!
   
         
         cur->prepare();  
@@ -36,7 +36,7 @@ int main()
         cur->prepare(); 
         cur->bind(1, test);
         cur->step();
-        int health = cur->get_int(2);                       // Retrieving information from the table and applying it to variables.
+        int health = cur->get_int(2);                       // Retrieving information from the datavase table and use it to variables!
         
         cur->prepare(); 
         cur->bind(1, test);
@@ -56,7 +56,7 @@ int main()
         
         cout << "Boss: " << boss << endl;
         cout << "Name: " << name << endl;
-        cout << "Health: " << health << endl;                 // Shows the stats/information of each enemie
+        cout << "Health: " << health << endl;                 // Shows the stats/information of each enemie!
         cout << "Damage: " << damage << endl;
         cout << "Speed: " << speed << endl;
         cout << "Drop Rate: " << droprate << endl;
@@ -64,7 +64,7 @@ int main()
        
         
     }
-    catch( sqlite::exception e )                                // catch all sql issues
+    catch( sqlite::exception e )                                // catch all sql issues!
     {
         std::cerr << e.what() << std::endl;
         return 1;
